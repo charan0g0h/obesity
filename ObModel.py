@@ -19,7 +19,6 @@ CATEGORICAL_COLUMNS = [
     "SMOKE",
     "SCC",
     "CALC",
-    "MTRANS"
 ]
 CATEGORY_MAP = {
     "Gender": {
@@ -110,21 +109,6 @@ def train_model(train_x , train_y , validation_x , validation_y):
     history = model.fit(train_x , train_y , batch_size=32,epochs =epoch,validation_data=(validation_x,validation_y))
     return history,model
 
-
-def plot(history):
-    plt.plot(history.history["accuracy"] , label="train")
-    plt.plot(history.history["val_accuracy"], label="validation")
-    plt.xlabel("epoch")
-    plt.ylabel("accuracy")
-    plt.legend()
-    plt.show()
-
-    plt.plot(history.history["loss"] , label="train")
-    plt.plot(history.history["val_loss"], label="validation")
-    plt.xlabel("epoch")
-    plt.ylabel("loss")
-    plt.legend()
-    plt.show()
 
 def predict(features,model):
     y_pred = model.predict(features)
